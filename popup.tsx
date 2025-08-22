@@ -1,26 +1,30 @@
 import { useState } from "react"
+import "bootstrap/dist/css/bootstrap.min.css"
+import "./popup.scss"
 
 function IndexPopup() {
   const [data, setData] = useState("")
 
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    console.log('button clicked!', event.currentTarget);
+  }
+
   return (
-    <div
-      style={{
-        padding: 16
-      }}>
-      <h2>
-        Dick n Balls{" "}
-        <a href="https://www.plasmo.com" target="_blank">
-          Plasmo
-        </a>{" "}
-        Extension!
-      </h2>
-      <input onChange={(e) => setData(e.target.value)} value={data} />
-      <a href="https://docs.plasmo.com" target="_blank">
-        View Docs
-      </a>
+    <div className="container-fluid p-3" style={{ width: "350px" }}>
+      <div className="row">
+        <div className="col-12">
+          <h2 className="h4 text-primary mb-3">Plant ID</h2>
+          <button onClick={handleClick} className="btn btn-success w-100">
+            <i className="bi bi-scissors me-2"></i>
+            Take a Cutting!
+          </button>
+
+        </div>
+      </div>
     </div>
   )
 }
+
+
 
 export default IndexPopup
